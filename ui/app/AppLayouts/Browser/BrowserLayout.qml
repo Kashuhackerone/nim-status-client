@@ -82,6 +82,10 @@ Rectangle {
         standardButtons: StandardButton.Ok
     }
 
+    AddFavoriteModal {
+        id: addFavoriteModal
+    }
+
     QtObject {
         id: provider
         WebChannel.id: "backend"
@@ -594,8 +598,7 @@ Rectangle {
                                 id: addBookmarkBtn
                                 text: qsTr("Add favorite")
                                 onClicked: {
-                                    // TODO add a popup
-                                    browserModel.addBookmark("https://dap.ps/", "dap.ps")
+                                    addFavoriteModal.open()
                                 }
                                 anchors.left: bookmarkList.right
                                 anchors.leftMargin: bookmarkList.spacing
