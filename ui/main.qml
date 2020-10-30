@@ -83,6 +83,7 @@ ApplicationWindow {
         property bool notificationSoundsEnabled: true
 
         // Browser settings
+        property var bookmarkFavicons: ({})
         property bool autoLoadImages: true
         property bool javaScriptEnabled: true
         property bool errorPageEnabled: true
