@@ -215,8 +215,8 @@ rcc:
 	./ui/generate-rcc.sh
 	rcc --binary ui/resources.qrc -o ./resources.rcc
 
-ifneq ($(INFURA_KEY),)
- NIM_PARAMS += -d:INFURA_KEY:"$(INFURA_KEY)"
+ifneq ($(INFURA_TOKEN),)
+ NIM_PARAMS += -d:INFURA_TOKEN:"$(INFURA_TOKEN)"
 endif
 
 nim_status_client: | $(DOTHERSIDE) $(STATUSGO) $(QRCODEGEN) rcc deps
