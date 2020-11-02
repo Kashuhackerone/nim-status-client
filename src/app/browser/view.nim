@@ -2,7 +2,6 @@ import NimQml, json, chronicles
 import ../../status/status
 import ../../status/libstatus/browser as status_browser
 import ../../status/libstatus/types as status_types
-import ../../status/libstatus/settings as status_settings
 import views/bookmark_list
 
 QtObject:
@@ -29,7 +28,7 @@ QtObject:
       let responseResult = status_browser.getBookmarks().parseJson["result"]
       if responseResult.kind != JNull:
         for bookmark in responseResult:
-          bookmarks.add(Bookmark(url: bookmark["url"].getStr, name: bookmark["name"].getStr))
+          bookmarks.add(Bookmark(url: bookmark["url"].getStr, name: bookmark["name"].getStr, imageUrl: bookmark["imageUrl"].getStr))
     except:
       # Bad JSON. Just use the empty array
       discard

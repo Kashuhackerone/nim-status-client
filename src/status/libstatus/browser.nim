@@ -1,8 +1,10 @@
-import core, types, utils, strutils, strformat, json
+import core, types, utils, strutils, strformat, json, chronicles
 
 proc storeBookmark*(url: string, name: string) =
   let payload = %* [{"url": url, "name": name}]
-  discard callPrivateRPC("browsers_storeBookmark", payload)
+  #TODO use the response to get the URL
+  let resp = callPrivateRPC("browsers_storeBookmark", payload)
+  debug "Response", resp
 
 proc updateBookmark*(ogUrl: string, url: string, name: string) =
   let payload = %* [ogUrl, {"url": url, "name": name}]
